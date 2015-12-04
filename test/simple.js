@@ -14,9 +14,8 @@ var _ = require('lodash'),
 
 describe('Simple Model Test', function () {
 
-	hooks();
-
 	describe("#create single simple model", function () {
+		hooks();
 		it('should generate correct slug', function (done) {
 			var model = new SimpleModel({ name: 'SpongeBob' });
 			model.save(function (err, result) {
@@ -29,7 +28,7 @@ describe('Simple Model Test', function () {
 	});
 
 	describe('#create simple model', function () {
-
+		hooks();
 		var task = function (cb) {
 			SimpleModel.create({ name: 'SpongeBob' }, function (err, result) {
 				if (err)

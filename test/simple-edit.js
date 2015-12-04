@@ -85,13 +85,12 @@ describe('Edit Simple Model Test', function () {
 
 
 	describe("#create and edit simple model", function () {
-		it('should generate correct slug and also findBySlug should ponited to correct data', function (done) {
-
-			async.series([createSlugsTest, findBySlugTest], function (err) {
-				done();
-			});
-
+		it('should generate correct slug', function (done) {
+			createSlugsTest(done);
 		});
+		it('findBySlug should ponited to correct data', function (done) {
+			findBySlugTest(done);
+		});		
 	});
 
 });

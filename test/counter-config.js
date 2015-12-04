@@ -29,7 +29,7 @@ describe('Configuration Test', function () {
 			var customSchema = new mongoose.Schema({
 				name: String	
 			});
-			customSchema.plugin(slugHero, {doc: 'simple', field: 'name', counter: 'custom_slug_counters'});			
+			customSchema.plugin(slugHero, {doc: 'custom1', field: 'name', counter: 'custom_slug_counters'});			
 			var	CustomModel = mongoose.model('CustomModel', customSchema);
 			
 			new CustomModel({ name: 'SpongeBob' }).save(function (err, result) {
@@ -42,7 +42,7 @@ describe('Configuration Test', function () {
 				// The counter should be written in '_slug_ctrs' 
 				mongoose.connection.db.collection('custom_slug_counters', function (err, collection) {
 					collection.find({}).toArray(function (err, res) {
-						res[0]._id.should.equal('simple|name*SpongeBob*');
+						res[0]._id.should.equal('custom1|name*SpongeBob*');
 						done();
 					});
 				});
@@ -57,7 +57,7 @@ describe('Configuration Test', function () {
 			var anotherCustomSchema = new mongoose.Schema({
 				name: String	
 			});
-			anotherCustomSchema.plugin(slugHero, {doc: 'simple', field: 'name', counter: 'custom_slug_counters'});			
+			anotherCustomSchema.plugin(slugHero, {doc: 'custom2', field: 'name', counter: 'custom_slug_counters'});			
 			var	AnotherCustomModel = mongoose.model('AnotherCustomModel', anotherCustomSchema);
 			
 			new AnotherCustomModel({ name: 'SpongeBob' }).save(function (err, result) {
@@ -70,7 +70,7 @@ describe('Configuration Test', function () {
 				// The counter should be written in '_slug_ctrs' 
 				mongoose.connection.db.collection('custom_slug_counters', function (err, collection) {
 					collection.find({}).toArray(function (err, res) {
-						res[0]._id.should.equal('simple|name*SpongeBob*');
+						res[1]._id.should.equal('custom2|name*SpongeBob*');
 						done();
 					});
 				});

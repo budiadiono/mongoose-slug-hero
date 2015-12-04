@@ -10,9 +10,9 @@ var mongoose = require('mongoose'),
 
 module.exports = function () {
 
-	beforeEach('Clear database', function (done) {
+	before('Clear database', function (done) {
 
-		function clearDB() {
+		function clearDB() {			
 			for (var i in mongoose.connection.collections) {
 				mongoose.connection.collections[i].remove(function () { });
 			}
@@ -32,10 +32,10 @@ module.exports = function () {
 		
 	});
 
-	afterEach('Clear and drop database', function (done) {
+	after('Clear and drop database', function (done) {
 		
 		mongoose.connection.db.dropDatabase(function (err) {
-			if (err) return done(err);
+			if (err) return done(err);			
 			mongoose.disconnect(done);
 		});
 		
