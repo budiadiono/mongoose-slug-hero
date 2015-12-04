@@ -1,4 +1,6 @@
 #Mongoose Slug Hero
+[![Build Status](https://travis-ci.org/budiadiono/mongoose-slug-hero.svg?branch=master)](https://travis-ci.org/budiadiono/mongoose-slug-hero)
+
 **Mongoose Slug Hero** is a mongoose plugin to generate unique sequential slug. 
 This plugin uses [node-slug](https://github.com/dodo/node-slug) module to generate 
 slug from targeted field. To guarantee the uniqueness, this plugin uses sequence 
