@@ -19,28 +19,30 @@ describe('Edit Simple Model Test', function () {
 
 	var createSlugsTest = function (cb) {
 		new SimpleModel({ name: 'SpongeBob' }).save(function (err, doc1) {
-			if (err)
-				throw err;
+			if (err) throw err;
 		  
 			// Created normal slug
 			doc1.slug.should.equal('spongebob');
         
 			// Find and edit 1
 			SimpleModel.findOne({ _id: doc1._id }, function (err, doc2) {
+				if (err) throw err;
 			
 				// Edit name that should update the slug
 				doc2.name = 'Gary';
 				doc2.save(function (err, doc3) {
-					doc3.slug.should.equal('gary');
-				
+					if (err) throw err;
+					doc3.slug.should.equal('gary');				
 				
 					// Find and edit 2
 					SimpleModel.findOne({ _id: doc3._id }, function (err, doc4) {
+						if (err) throw err;
 			
 						// Edit name using the firstly name that should update the slug
 						// But it should be different slug as first created slug
 						doc4.name = 'SpongeBob';
 						doc4.save(function (err, doc5) {
+							if (err) throw err;
 							doc5.slug.should.equal('spongebob-2');
 							cb();
 						});
