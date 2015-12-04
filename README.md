@@ -30,7 +30,7 @@ You can find your data by invoking this method by supplying whether the current 
 
 * **doc** (required): Name of slug-hero, this must be unique among collections. You can fill with the model name to make life easier. 
 * **field** (required): Name of your field that slug will generate for.
-* **scope** (optional): Array of field names for scope keys *(see example: [Scoped Slug](#https://github.com/budiadiono/mongoose-slug-hero#scoped-slug))*.
+* **scope** (optional): Array of field names for scope keys *(see example: [Scoped Slug](https://github.com/budiadiono/mongoose-slug-hero#scoped-slug))*.
 * **slugField** (optional / **global**): The slug field name that will be added to the collection to store generated slug. *Default: `slug`*.
 * **slugsField** (optional / **global**): The slugs field name that will be added to the collection to store slug history. *Default: `slugs`*.
 * **slugOptions** (optional / **global**): Options for node-slug. Please refer to https://github.com/dodo/node-slug#options. *Default: `{lower: true}`*.
