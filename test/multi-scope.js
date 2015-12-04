@@ -21,22 +21,22 @@ describe('Multi Scope Model Test', function () {
 			var model = { name: 'SpongeBob', owner1: 'Squidward', owner2: 'Gary' };
 
 			// First 
-			new MultiScopeModel(model).save(function (err, result) {
+			new MultiScopeModel(model).save(function (err, doc1) {
 
-				result.slug.should.equal('spongebob');
+				doc1.slug.should.equal('spongebob');
 
 				// Second, same owner
-				new MultiScopeModel(model).save(function (err, result) {
-					result.slug.should.equal('spongebob-2');
+				new MultiScopeModel(model).save(function (err, doc2) {
+					doc2.slug.should.equal('spongebob-2');
           
 					// Third, different owner
 					model.owner1 = 'Patrick';
-					new MultiScopeModel(model).save(function (err, result) {
-						result.slug.should.equal('spongebob');
+					new MultiScopeModel(model).save(function (err, doc3) {
+						doc3.slug.should.equal('spongebob');
 
 						// Fourth, same previous owner
-						new MultiScopeModel(model).save(function (err, result) {
-							result.slug.should.equal('spongebob-2');
+						new MultiScopeModel(model).save(function (err, doc4) {
+							doc4.slug.should.equal('spongebob-2');
 							done();
 						}); // Fourth
           
