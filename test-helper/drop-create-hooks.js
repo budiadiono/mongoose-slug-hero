@@ -32,7 +32,7 @@ module.exports = function () {
 		
 	});
 
-	after('Clear and drop database', function (done) {
+	after('Drop database', function (done) {
 		
 		mongoose.connection.db.dropDatabase(function (err) {
 			if (err) return done(err);			

@@ -1,13 +1,17 @@
 {
 	"name": "mongoose-slug-hero",
-	"version": "1.0.3",
-	"description": "Mongoose trackable unique slug generator.",
+	"version": "1.0.4",
+	"description": "Mongoose trackable unique slug generator plugin.",
 	"keywords": [
 		"mongoose",
 		"mongoosejs",
 		"slugify",
 		"slug",
-		"url"
+		"url",
+		"plugin",
+		"mongoose-plugin",
+		"sequence",
+		"track"
 	],
 	"main": "index.js",
 	"scripts": {
