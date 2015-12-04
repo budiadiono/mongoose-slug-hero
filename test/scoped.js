@@ -23,22 +23,22 @@ describe('Scoped Model Test', function () {
 			var model = { name: 'SpongeBob', owner: 'Squidward' };
 
 			// First 
-			new ScopedModel(model).save(function (err, result) {
+			new ScopedModel(model).save(function (err, doc1) {
 
-				result.slug.should.equal('spongebob');
+				doc1.slug.should.equal('spongebob');
 
 				// Second, same owner
-				new ScopedModel(model).save(function (err, result) {
-					result.slug.should.equal('spongebob-2');
+				new ScopedModel(model).save(function (err, doc2) {
+					doc2.slug.should.equal('spongebob-2');
           
 					// Third, different owner
 					model.owner = 'Patrick';
-					new ScopedModel(model).save(function (err, result) {
-						result.slug.should.equal('spongebob');
+					new ScopedModel(model).save(function (err, doc3) {
+						doc3.slug.should.equal('spongebob');
 
 						// Fourth, same previous owner
-						new ScopedModel(model).save(function (err, result) {
-							result.slug.should.equal('spongebob-2');
+						new ScopedModel(model).save(function (err, doc4) {
+							doc4.slug.should.equal('spongebob-2');
 							done();
 						}); // Fourth
           
@@ -48,21 +48,7 @@ describe('Scoped Model Test', function () {
         
 			}); // First
       
-		});
-    
-		//  it('should generate correct slug', function (done) {
-		//   var model = new ScopedModel({ name: 'SpongeBob', owner: 'Squidward' });
-		//   model.save(function (err, result) {
-		//     if (err)
-		//       throw err;
-		//     result.slug.should.equal('spongebob-2');
-		//     done();
-		//   });
-		// });
-    
-    
-    
-    
+		});    
 	});
 
 });
