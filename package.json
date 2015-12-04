@@ -1,0 +1,32 @@
+{
+	"name": "mongoose-slug-hero",
+	"version": "1.0.0",
+	"description": "Mongoose trackable unique slug generator.",
+	"keywords": ["mongoose", "mongoosejs", "slugify", "slug", "url"],
+	"main": "index.js",
+	"scripts": {
+		"test": "./node_modules/mocha/bin/mocha"
+	},
+	"author": {
+		"name": "Budi Adiono",
+		"email": "budiadiono@gmail.com",
+		"url": "http://www.budiadiono.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/budiadiono/mongoose-slug-hero.git"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"mongoose": "^4.2.9",
+		"slug": "^0.9.1"
+	},
+	"devDependencies": {
+		"lodash": "^3.10.1",
+		"mocha": "^2.3.4",
+		"should": "^7.1.1"
+	},
+	"files": [
+		"lib"
+	]
+}
