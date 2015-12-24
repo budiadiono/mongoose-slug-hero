@@ -30,7 +30,7 @@ You can find your data by invoking this method by supplying whether the current 
 
 * **doc** (required): Name of slug-hero, this must be unique among collections. You can fill with the model name to make life easier. 
 * **field** (required): Name of your field that slug will generate for.
-* **scope** (optional): Array of field names for scope keys *(see example: [Scoped Slug](https://github.com/budiadiono/mongoose-slug-hero#scoped-slug))*.
+* **scope** (optional): Array of field names for scope keys *(see example: [Scoped Slug](#scoped-slug))*.
 * **slugField** (optional / **global**): The slug field name that will be added to the collection to store generated slug. *Default: `slug`*.
 * **slugsField** (optional / **global**): The slugs field name that will be added to the collection to store slug history. *Default: `slugs`*.
 * **slugOptions** (optional / **global**): Options for node-slug. Please refer to https://github.com/dodo/node-slug#options. *Default: `{lower: true}`*.
@@ -98,7 +98,7 @@ var Post = mongoose.model('Post', postSchema);
 **findBySlug** method returning mongoose query, except that the parameter is slug itself.
 So you can do mongoose query syntax like here.
 
-Either `<Model>.findBySlug(<slug>, [callbak]);` or `<Model>.findBySlug(<slug>).exec([callbak]);`
+Either `<Model>.findBySlug(<slug_or_options>, [callbak]);` or `<Model>.findBySlug(<slug_or_options>).exec([callbak]);`
 
 Example:
 ```
@@ -109,6 +109,13 @@ Post.findBySlug('great-post-ever', function(err, result) {
 or
 ```
 Post.findBySlug('great-post-ever').exec(function(err, result) {
+	// 'result' is what we looking for 	
+});
+```
+For scoped slug, you can feed first parameter with an object instead of slug. 
+For example you want to find data belongs to `userId` with value `1`:
+```
+Post.findBySlug({slug: 'great-post-ever', userId: 1}).exec(function(err, result) {
 	// 'result' is what we looking for 	
 });
 ```
