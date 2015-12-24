@@ -32,7 +32,8 @@
 		"mocha": "^2.3.4",
 		"should": "^7.1.1",
 		"mongoose": "^4.2.9",		
-		"slug": "^0.9.1"
+		"slug": "^0.9.1",
+		"lodash": "^3.10.1"
 	},
 	"peerDependencies": {
 		"slug": "^0.9.1",
