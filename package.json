@@ -1,6 +1,6 @@
 {
 	"name": "mongoose-slug-hero",
-	"version": "1.0.5",
+	"version": "1.0.6-beta",
 	"description": "Mongoose trackable unique slug generator plugin.",
 	"keywords": [
 		"mongoose",
