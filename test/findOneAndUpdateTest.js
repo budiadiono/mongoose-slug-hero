@@ -10,7 +10,7 @@ var hooks = require('../test-helper/drop-create-hooks'),
   async = require('async'),
   SimpleModel = require('../test-helper/models').Simple
 
-describe('Github issues', function () {
+describe('Find One And Update', function () {
   hooks()
 
   var slugHero = require('../lib/mongoose-slug-hero'),
@@ -37,9 +37,44 @@ describe('Github issues', function () {
   })
   articleSchema.plugin(slugHero, {doc: 'article', field: 'title'})
   mongoose.model('Article', articleSchema)
+	
+	it('#1 - should works with findOneAndUpdate', function (done) {
+		
+		// Resolve: https://github.com/budiadiono/mongoose-slug-hero/issues/2
+		
+    var id
 
+    async.series([
 
-  it('#1 - findOneAndUpdate should not erase fields', function (done) {
+      // Create
+      function (next) {
+        new SimpleModel({ name: 'SpongeBob' }).save(function (err, doc) {
+          if (err) throw err
+          // Created normal slug
+          id = doc.id
+          doc.slug.should.equal('spongebob')
+          next()
+        })
+      },
+
+      // findOneAndUpdate
+      function (next) {				
+        SimpleModel.findOneAndUpdate({_id: id}, {
+          name: 'Gary'
+        }, { new: true }, function (err, doc) {
+          doc.slug.should.equal('gary')
+          next()
+        })
+      }
+
+    ], done)
+
+  })
+
+  it('#2 - findOneAndUpdate should not erase fields', function (done) {
+		
+		// Investigation: https://github.com/budiadiono/mongoose-slug-hero/issues/1
+		
     var Article = mongoose.model('Article'), Category = mongoose.model('Category', categorySchema)
     var articleId, categories = []
 
@@ -87,16 +122,16 @@ describe('Github issues', function () {
             cover: 'cover1',
             published: true
           },
-		  {'new': true},
+          {'new': true},
           function (err, article) {
-            Article.findById(articleId, function (err, article) {              
-			  article.title.should.eql('the title')
-			  article.intro.should.eql('intro1')
-			  article.body.should.eql('body1')
-			  article.quote.should.eql('quote1')
-			  article.quote_citation.should.eql('quote_citation1')
-			  article.cover.should.eql('cover1')
-			  article.published.should.eql(true)
+            Article.findById(articleId, function (err, article) {
+              article.title.should.eql('the title')
+              article.intro.should.eql('intro1')
+              article.body.should.eql('body1')
+              article.quote.should.eql('quote1')
+              article.quote_citation.should.eql('quote_citation1')
+              article.cover.should.eql('cover1')
+              article.published.should.eql(true)
               next()
             })
 
