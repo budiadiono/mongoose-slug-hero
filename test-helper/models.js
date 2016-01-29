@@ -65,15 +65,39 @@ var dottedModelSchema = new Schema({
 })
 
 dottedModelSchema.plugin(slugHero, {
-  doc: 'foo',
+  doc: 'dottedModelSchema',
   field: 'info.title',
   slugFieldName: 'config.slug',
   slugsFieldName: 'config.slugs'
+})
+
+
+//
+// Schema with dot notation with scope
+//
+var dottedScopedModelSchema = new Schema({
+  name: String,
+  info: {
+    title: String,
+    subtitle: String
+  },
+	group: {
+		name: String
+	}
+})
+
+dottedScopedModelSchema.plugin(slugHero, {
+  doc: 'dottedScopedModelSchema',
+  field: 'info.title',
+  slugFieldName: 'config.slug',
+  slugsFieldName: 'config.slugs',
+	scope: ['group.name']
 })
 
 module.exports = {
   Simple: mongoose.model('SimpleModel', simpleModelSchema),
   Scoped: mongoose.model('ScopedModel', scopedModelSchema),
   MultiScope: mongoose.model('MultiScopedModel', multiScopeModelSchema),
-	DottedModel: mongoose.model('Foo', dottedModelSchema)
+	DottedModel: mongoose.model('dottedModelSchema', dottedModelSchema),
+	DottedScopedModel: mongoose.model('dottedScopedModelSchema', dottedScopedModelSchema)
 }
