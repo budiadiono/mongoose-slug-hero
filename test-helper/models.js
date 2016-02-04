@@ -15,7 +15,8 @@ var simpleModelSchema = new Schema({
   'name': {
     type: String,
     required: true
-  }
+  },
+	'foo': String
 })
 simpleModelSchema.plugin(slugHero, {doc: 'simple', field: 'name'})
 
@@ -30,9 +31,28 @@ var scopedModelSchema = new Schema({
   'owner': {
     type: String,
     required: true,
-  }
+  },
+	'foo': String
 })
 scopedModelSchema.plugin(slugHero, {doc: 'scoped', scope: ['owner'], field: 'name'})
+
+//
+// Model with advanced scope
+//
+var advancedScopedModelSchema = new Schema({
+  'name': {
+    type: String,
+    required: true
+  },
+  'owner': {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'SimpleModel',
+    required: true,
+    index: true
+  },
+	'foo': String
+})
+advancedScopedModelSchema.plugin(slugHero, {doc: 'advancedScoped', scope: ['owner'], field: 'name'})
 
 //
 // Model with 2 fields as scope
@@ -97,6 +117,7 @@ dottedScopedModelSchema.plugin(slugHero, {
 module.exports = {
   Simple: mongoose.model('SimpleModel', simpleModelSchema),
   Scoped: mongoose.model('ScopedModel', scopedModelSchema),
+	AdvancedScoped: mongoose.model('AdvancedScoped', advancedScopedModelSchema),
   MultiScope: mongoose.model('MultiScopedModel', multiScopeModelSchema),
 	DottedModel: mongoose.model('dottedModelSchema', dottedModelSchema),
 	DottedScopedModel: mongoose.model('dottedScopedModelSchema', dottedScopedModelSchema)
