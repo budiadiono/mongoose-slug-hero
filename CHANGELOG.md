@@ -18,6 +18,12 @@
 
 - Edit advanced scoped model
 
+## [1.0.8] - 2017-03-02
+
+### Fixed
+
+- Fix undefined slug field value. (#5)
+
 
 [1.0.6]: https://github.com/budiadiono/mongoose-slug-hero/compare/cf470915502218ff38227cd52ba710702ae23d1d...c3ce00b4c08ff913b3517f2c906d3e1edb106c8e
 [1.0.7]: https://github.com/budiadiono/mongoose-slug-hero/compare/v1.0.6...v1.0.7
