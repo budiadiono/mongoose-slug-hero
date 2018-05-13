@@ -17,7 +17,7 @@ var simpleModelSchema = new Schema({
     required: true
   },
 	'foo': String
-})
+}, { usePushEach: true })
 simpleModelSchema.plugin(slugHero, {doc: 'simple', field: 'name'})
 
 //
@@ -33,7 +33,7 @@ var scopedModelSchema = new Schema({
     required: true,
   },
 	'foo': String
-})
+}, { usePushEach: true })
 scopedModelSchema.plugin(slugHero, {doc: 'scoped', scope: ['owner'], field: 'name'})
 
 //
@@ -51,7 +51,7 @@ var advancedScopedModelSchema = new Schema({
     index: true
   },
 	'foo': String
-})
+}, { usePushEach: true })
 advancedScopedModelSchema.plugin(slugHero, {doc: 'advancedScoped', scope: ['owner'], field: 'name'})
 
 //
@@ -70,7 +70,7 @@ var multiScopeModelSchema = new Schema({
     type: String,
     required: true,
   }
-})
+}, { usePushEach: true })
 multiScopeModelSchema.plugin(slugHero, {doc: 'multi-scope', scope: ['owner1', 'owner2'], field: 'name'})
 
 //
@@ -82,7 +82,7 @@ var dottedModelSchema = new Schema({
     title: String,
     subtitle: String
   }
-})
+}, { usePushEach: true })
 
 dottedModelSchema.plugin(slugHero, {
   doc: 'dottedModelSchema',
@@ -104,7 +104,7 @@ var dottedScopedModelSchema = new Schema({
 	group: {
 		name: String
 	}
-})
+}, { usePushEach: true })
 
 dottedScopedModelSchema.plugin(slugHero, {
   doc: 'dottedScopedModelSchema',
