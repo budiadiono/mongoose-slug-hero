@@ -1,1 +1,1 @@
-module.exports = require('./lib/mongoose-slug-hero');
+module.exports = require('./lib/mongoose-slug-hero')

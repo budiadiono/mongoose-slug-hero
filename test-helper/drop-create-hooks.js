@@ -8,19 +8,22 @@
 var mongoose = require('mongoose'),
   db = 'mongodb://127.0.0.1/slugherodbtest'
 
-module.exports = function () {
-  before('Clear database', function (done) {
-    function clearDB () {
-      for (var i in mongoose.connection.collections) {
-        mongoose.connection.collections[i].remove(function () {})
+module.exports = function() {
+  before('Clear database', function(done) {
+    function clearDB() {
+      var collections = mongoose.connection.collections
+      for (var i in collections) {
+        if (collections[i]) {
+          collections[i].remove(function() {})
+        }
       }
-      setTimeout(function () {
+      setTimeout(function() {
         return done()
       }, 500)
     }
 
     if (mongoose.connection.readyState === 0) {
-      mongoose.connect(db, function (err) {
+      mongoose.connect(db, function(err) {
         if (err) {
           throw err
         }
@@ -29,17 +32,16 @@ module.exports = function () {
     } else {
       return clearDB()
     }
-
   })
 
-  after('Drop database', function (done) {
-    setTimeout(function () {
-      mongoose.connection.db.dropDatabase(function (err) {
-        if (err) return done(err)
+  after('Drop database', function(done) {
+    setTimeout(function() {
+      mongoose.connection.db.dropDatabase(function(err) {
+        if (err) {
+          return done(err)
+        }
         mongoose.disconnect(done)
       })
-
     }, 500)
   })
-
 }
