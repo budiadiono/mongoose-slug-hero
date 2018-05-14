@@ -120,6 +120,41 @@ Post.findBySlug({slug: 'great-post-ever', userId: 1}).exec(function(err, result)
 });
 ```
 
+### Generate slug to existing document
+
+You can call **ensureSlugIsExists** method to generate slug into existing document.
+For example you have a schema and model like this:
+
+```
+var schema = new mongoose.Schema({
+	name: String
+})
+
+var MyModel = mongoose.model('MyModel', schema)
+
+```
+
+Then you release your app and of course `MyModel` now filled with many data.
+
+Now you change your mind, that you want to have a slug to your `MyModel`. All you have to do is:
+
+1. Change your schema to have `mongoose-slug-hero` plugged.
+	```
+	schema.plugin(slugHero, {doc: 'my-model', field: 'name'})
+	```
+2. Call **ensureSlugIsExists** right after model initialization:
+	```
+	MyModel.ensureSlugIsExists(function (error) {
+		if (error) {
+			throw error
+		}
+
+		console.log('success!')
+	})
+	```
+
+
+
 ## License
 
 [MIT](https://github.com/budiadiono/mongoose-slug-hero/blob/master/LICENSE)
