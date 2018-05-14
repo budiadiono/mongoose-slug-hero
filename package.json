@@ -15,7 +15,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && mocha",
+    "test": "mocha",
     "lint": "./node_modules/.bin/jshint --exclude node_modules ./"
   },
   "author": {
