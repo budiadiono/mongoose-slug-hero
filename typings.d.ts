@@ -1,5 +1,5 @@
 declare module 'mongoose-slug-hero' {
-  import { Document, DocumentQuery } from 'mongoose'
+  import { Document, DocumentQuery, Model } from 'mongoose'
 
   export interface SlugHeroGlobalOptions {
     /**

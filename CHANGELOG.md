@@ -37,7 +37,14 @@
 * ensureSlugIsExists static method
 * Typescript definition file (#10)
 
+## [1.1.1] - 2018-05-14
+
+### Fixed
+
+* Fix & added missing d.ts file
+
 [1.0.6]: https://github.com/budiadiono/mongoose-slug-hero/compare/cf470915502218ff38227cd52ba710702ae23d1d...c3ce00b4c08ff913b3517f2c906d3e1edb106c8e
 [1.0.7]: https://github.com/budiadiono/mongoose-slug-hero/compare/v1.0.6...v1.0.7
 [1.0.8]: https://github.com/budiadiono/mongoose-slug-hero/compare/v1.0.7...v1.0.8
 [1.1.0]: https://github.com/budiadiono/mongoose-slug-hero/compare/v1.0.8...v1.1.0
+[1.1.0]: https://github.com/budiadiono/mongoose-slug-hero/compare/v1.1.0...v1.1.1
