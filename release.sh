@@ -5,6 +5,7 @@ echo
 
 echo "Test everything for release version $version..."
 echo
+npm run lint
 npm test
 echo
 
