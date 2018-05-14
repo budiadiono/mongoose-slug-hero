@@ -6,3 +6,5 @@ services:
 sudo: false
 install:
   - npm install
+before_script:
+  - npm install -g jshint
