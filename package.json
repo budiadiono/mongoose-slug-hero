@@ -14,6 +14,7 @@
     "track"
   ],
   "main": "index.js",
+  "typings": "typings.d.ts",
   "scripts": {
     "test": "mocha",
     "lint": "./node_modules/.bin/jshint --exclude node_modules ./"
@@ -32,6 +33,7 @@
     "slug": "^0.9.1"
   },
   "devDependencies": {
+    "@types/mongoose": "*",
     "async": "^1.5.0",
     "jshint": "^2.9.5",
     "lodash": "^3.10.1",
@@ -40,8 +42,11 @@
     "should": "^7.1.1"
   },
   "peerDependencies": {
+    "@types/mongoose": "*",
     "lodash": "^3.10.1",
     "mongoose": ">=3"
   },
-  "files": ["lib"]
+  "files": [
+    "lib"
+  ]
 }

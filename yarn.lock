@@ -2,6 +2,36 @@
 # yarn lockfile v1
 
 
+"@types/bson@*":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@types/bson/-/bson-1.0.8.tgz#6ad272b3f049e9598ec33aed09cf56d8946b75f1"
+  dependencies:
+    "@types/node" "*"
+
+"@types/events@*":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
+
+"@types/mongodb@*":
+  version "3.0.18"
+  resolved "https://registry.yarnpkg.com/@types/mongodb/-/mongodb-3.0.18.tgz#e5775ba9c15bf1601e57ada52d9fcbc6d6095d18"
+  dependencies:
+    "@types/bson" "*"
+    "@types/events" "*"
+    "@types/node" "*"
+
+"@types/mongoose@^5.0.13":
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/@types/mongoose/-/mongoose-5.0.13.tgz#5f9844588f63a9603f06a8a38eba82a99c3fea32"
+  dependencies:
+    "@types/events" "*"
+    "@types/mongodb" "*"
+    "@types/node" "*"
+
+"@types/node@*":
+  version "10.0.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.0.8.tgz#37b4d91d4e958e4c2ba0be2b86e7ed4ff19b0858"
+
 async@2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/async/-/async-2.1.4.tgz#2d2160c7788032e4dd6cbe2502f1f9a2c8f6cde4"
