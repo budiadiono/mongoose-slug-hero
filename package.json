@@ -28,21 +28,20 @@
     "url": "https://github.com/budiadiono/mongoose-slug-hero.git"
   },
   "license": "MIT",
+  "dependencies": {
+    "slug": "^0.9.1"
+  },
   "devDependencies": {
     "async": "^1.5.0",
     "jshint": "^2.9.5",
     "lodash": "^3.10.1",
     "mocha": "^2.5.3",
     "mongoose": "^4.2.9",
-    "should": "^7.1.1",
-    "slug": "^0.9.1"
+    "should": "^7.1.1"
   },
   "peerDependencies": {
     "lodash": "^3.10.1",
-    "mongoose": ">=3",
-    "slug": "^0.9.1"
+    "mongoose": ">=3"
   },
-  "files": [
-    "lib"
-  ]
+  "files": ["lib"]
 }
