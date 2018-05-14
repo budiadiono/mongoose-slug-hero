@@ -6,7 +6,7 @@
  **/
 
 var mongoose = require('mongoose'),
-  db = 'mongodb://127.0.0.1/slugherodbtest'
+  db = require('./config')
 
 module.exports = function() {
   before('Clear database', function(done) {
