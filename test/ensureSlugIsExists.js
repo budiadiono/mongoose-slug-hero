@@ -60,9 +60,6 @@ describe('Ensure slug is exists', function() {
             }
 
             // slug should be generated correctly
-            slug.should.equal('Sponge_Bob')
-            generatedSlug = slug
-
             NewModel.findById(foundId, function(err, result) {
               // The counter should be written in 'my_slug_counters'
               mongoose.connection.db.collection('my_slug_counters', function(
@@ -75,7 +72,8 @@ describe('Ensure slug is exists', function() {
                   // Now find it
                   NewModel.findBySlug('Sponge_Bob').exec(function(err, result) {
                     should.exist(result.mySlugs)
-                    generatedSlug.should.equal(result.mySlug)
+                    should.exist(result.mySlug)
+                    result.mySlug.should.equal('Sponge_Bob')
                     foundId.should.equal(result.id)
                     done()
                   })
